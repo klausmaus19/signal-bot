@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:25-jre
 
 RUN apt-get update \
     && apt-get install -y python3 python3-pip wget ca-certificates \
