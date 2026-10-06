@@ -4,6 +4,8 @@ import subprocess
 import schedule
 
 SIGNAL_CLI = "signal-cli"
+SIGNAL_DATA_DIR = "/data"
+
 PHONE = os.environ.get("PHONE")
 GROUPS = os.environ.get("GROUP_IDS", "").split(",")
 MESSAGE = os.environ.get("POST_TEXT")
@@ -21,6 +23,8 @@ def post_to_groups():
             subprocess.run(
                 [
                     SIGNAL_CLI,
+                    "-d",
+                    SIGNAL_DATA_DIR,
                     "-u",
                     PHONE,
                     "send",
