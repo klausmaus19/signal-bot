@@ -9,7 +9,7 @@ SIGNAL_DATA_DIR = "/data"
 PHONE = os.environ.get("PHONE")
 GROUPS = os.environ.get("GROUP_IDS", "").split(",")
 MESSAGE = os.environ.get("POST_TEXT")
-INTERVAL_HOURS = int(os.environ.get("INTERVAL_HOURS", "8"))
+INTERVAL_MINUTES = int(os.environ.get("INTERVAL_MINUTES", "10"))
 
 
 def post_to_groups():
@@ -49,7 +49,7 @@ print("Bot gestartet!", flush=True)
 
 post_to_groups()
 
-schedule.every(INTERVAL_HOURS).hours.do(post_to_groups)
+schedule.every(INTERVAL_MINUTES).minutes.do(post_to_groups)
 
 while True:
     schedule.run_pending()
